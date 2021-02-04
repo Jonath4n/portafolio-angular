@@ -7,7 +7,7 @@ import { ItemComponent } from './pages/item/item.component';
 const routes: Routes = [
   { path: 'home', component: PortafolioComponent },//Cuando my url este vacio va a redirigir a mi Home
   { path: 'about', component: AboutComponent },
-  { path: 'item', component: ItemComponent },
+  { path: 'item/:id', component: ItemComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }, //Excepcion, si no navega a las opciones que redirija a HOME
 
 ];

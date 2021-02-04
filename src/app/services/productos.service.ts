@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Producto } from '../interfaces/productos.interface';
+import { Pdescripcion } from '../interfaces/producto-descripcion.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,13 @@ export class ProductosService {
   private cargarProductos(){
 
     this.http.get('https://angular-htmls-default-rtdb.firebaseio.com/productos_idx.json').subscribe( (resp: any) => {
-      //resp = this.productos;
-      console.log(resp);
       this.productos = resp;
       this.cargando = false;
     });
+  }
+
+  Getproductos(id: string){
+   return this.http.get('https://angular-htmls-default-rtdb.firebaseio.com/productos/'+id+'.json');
+
   }
 }
